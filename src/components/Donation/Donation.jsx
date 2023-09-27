@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { getStoredJobApplication } from "../utility/localStorage";
+import { getStoredJobApplication } from "../Utility/LocalStorage"
 
 const Donation = () => {
     const jobs = useLoaderData();
@@ -9,7 +9,6 @@ const Donation = () => {
 
     const [dataLength, setDataLength] = useState(4);
 
-    const [isShow, setIsShow] = useState(false);
 
 
     useEffect(() => {
@@ -66,14 +65,15 @@ const Donation = () => {
                 </div>
             </div> */}
 
-            {!isShow && Donation.length > 4 && (
-                <button
-                    onClick={() => setIsShow(true)}
-                    className="font-semibold text-center bg-green-800 text-white p-3 rounded-md mx-auto block mb-10"
-                >
-                    See More
-                </button>
-            )}
+            <div className={dataLength === jobs.length ? 'hidden' : ''}>
+                <div className="text-center lg-4 lg:mt-10">
+                    <button
+                        onClick={() => setDataLength(jobs.length)
+                        }
+
+                        className="btn btn-success text-white  ">See All</button>
+                </div>
+            </div>
 
 
 
