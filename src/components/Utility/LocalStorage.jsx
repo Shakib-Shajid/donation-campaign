@@ -17,8 +17,7 @@ const saveJobApplication = id => {
     const exists = storedJobApplication.find(jobId => jobId === id)
     if (!exists) {
         storedJobApplication.push(id);
-        localStorage.setItem('job-applications', JSON.stringify
-            (storedJobApplication))
+        localStorage.setItem('job-applications', JSON.stringify(storedJobApplication))
 
 
     }
