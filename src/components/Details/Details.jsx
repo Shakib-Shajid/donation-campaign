@@ -17,7 +17,6 @@ const Details = () => {
         toast('You have applied successfully')
     }
     return (
-        // <h2>job details of :{id} </h2>
         <div className="py-2 lg:px-36 lg:pt-10">
 
             <div className="relative ">

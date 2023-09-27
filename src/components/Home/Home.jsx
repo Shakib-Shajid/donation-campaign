@@ -1,6 +1,8 @@
 import Cards from "../Cards/Cards";
 
+
 const Home = () => {
+
     return (
         <div>
             <div className="hero md:min-h-[300px] lg:min-h-[600px] mb-10 lg:mb-24" style={{ backgroundImage: 'url(https://i.ibb.co/x1KRTKb/Rectangle-4281.png?fbclid=IwAR3ADECL0youUhY3iFIJgnSY0zpIs6XD6PJCPoOJAdd_It4l1uzBnJDusgw)' }}>
@@ -15,6 +17,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
             <Cards></Cards>
         </div>
     );

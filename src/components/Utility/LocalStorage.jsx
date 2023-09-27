@@ -1,4 +1,3 @@
-//localstorage e save korly string sara pareyna
 
 const getStoredJobApplication = () => {
     const storedJobApplication = localStorage.getItem('job-applications');
