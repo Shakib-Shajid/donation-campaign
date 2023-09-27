@@ -2,7 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { saveJobApplication } from "../Utility/LocalStorage";
+import { saveJobApplication } from "../utility/localStorage";
 
 const Details = () => {
     const jobs = useLoaderData();
@@ -13,23 +13,28 @@ const Details = () => {
 
     const handleApplyJob = () => {
         saveJobApplication(idInt);
-        // saveJobApplication(idInt);
+
         toast('You have applied successfully')
     }
     return (
-        <div>
-            <h2>job details of :{id} </h2>
+        // <h2>job details of :{id} </h2>
+        <div className="py-2 lg:px-36 lg:pt-10">
 
-            <div className="">
-                <img src={job.img} width={800} alt="" />
-                <button onClick={handleApplyJob} className="btn btn-success">Donate{job.price}</button>
+            <div className="relative ">
+                <img src={job.img} className="w-full " alt="" />
+                <div className="absolute bottom-0 h-20 lg:h-32 w-full bg-[#0b0b0b80]">
+                    <button onClick={handleApplyJob} className="my-4 lg:my-9  btn rounded-md text-white border-0 mx-9"
+
+                        style={{ backgroundColor: job.color["category-title-color"] }}
+                    >Donate {job.price}</button>
+                </div>
             </div>
 
 
 
             <div className="">
-                <h2 className="text-4xl">{job.title}</h2>
-                <p>{job.description}</p>
+                <h2 className="text-2xl lg:text-4xl font-bold my-4 lg:my-9">{job.title}</h2>
+                <p className="text-[#0b0b0bb3]">{job.description}</p>
             </div>
 
             <ToastContainer />

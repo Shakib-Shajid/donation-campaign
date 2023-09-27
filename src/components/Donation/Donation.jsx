@@ -9,6 +9,9 @@ const Donation = () => {
 
     const [dataLength, setDataLength] = useState(4);
 
+    const [isShow, setIsShow] = useState(false);
+
+
     useEffect(() => {
         const storedJobIds = getStoredJobApplication()
 
@@ -20,27 +23,21 @@ const Donation = () => {
             console.log(jobs, storedJobIds, jobsApplied)
         }
 
-
-
     }, [])
     return (
         <div className="max-w-7xl mx-auto">
-            {/* <h2> jobs i applied/ Donation: {appliedjobs.length}</h2> */}
-            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8 lg:mt-20">
                 {
-
                     appliedjobs.slice(0, dataLength).map(job => <li key={job.id}>
-                        {/* <span>{job.title}</span> */}
 
-
-                        <div className="card card-side bg-base-100 shadow-xl">
+                        <div className="card card-side bg-base-100 shadow-xl flex-col lg:flex-row">
                             <img src={job.img} alt="Movie" />
                             <div className="card-body" style={{ backgroundColor: job.color["category-color"] }}>
                                 <div className="card-actions ">
-                                    <button className="btn  " style={{
+                                    <button className="btn border-0 " style={{
                                         backgroundColor: job.color["category-color"],
-                                        color: job.color["category-title-color"]
+                                        color: job.color["category-title-color"],
+
                                     }}>{job.category}</button>
                                 </div>
                                 <h2 className="card-title"  >{job.title}</h2>
@@ -53,23 +50,36 @@ const Donation = () => {
 
 
 
-
                     </li>)
                 }
             </ul>
 
             {/* show all button */}
 
+            {/* <div className={dataLength === jobs.length ? 'hidden' : ''}>
+                <div className="text-center mt-4 lg:mt-10">
+                    <button
+                        onClick={() => setDataLength(jobs.length)
+                        }
 
-            <div className={dataLength === jobs.length ? 'hidden' : ''}>
+                        className="btn btn-success text-white  ">See All</button>
+                </div>
+            </div> */}
+
+            {!isShow && Donation.length > 4 && (
                 <button
-                    onClick={() => setDataLength(jobs.length)
-                    }
+                    onClick={() => setIsShow(true)}
+                    className="font-semibold text-center bg-green-800 text-white p-3 rounded-md mx-auto block mb-10"
+                >
+                    See More
+                </button>
+            )}
 
-                    className="btn btn-success ">See All</button>
-            </div>
 
-        </div>
+
+
+
+        </div >
     );
 };
 
